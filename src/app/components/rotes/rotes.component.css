@@ -1,0 +1,8 @@
+.border-list {
+  border-bottom: black 1px dashed;
+}
+
+.border-list:hover {
+  background-color: #c1bfb8;
+  cursor: pointer;
+}

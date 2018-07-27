@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="alert alert-danger mt-2" role="alert" *ngIf="nameValue.errors?.required && nameValue.touched">
+    Name must be not empty!
+  </div>
+
+  <div class="alert alert-danger mt-2" role="alert" *ngIf="status">
+    User not found!
+  </div>
+
+  <div class="alert alert-success mt-2" role="alert" *ngIf="statusFound">
+    We found user!
+  </div>
+
+  <form novalidate #form="ngForm" (ngSubmit)="onSearch(form)">
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control mt-2"
+        placeholder="Enter nickname..."
+        required
+        [(ngModel)]="nickname"
+        name="nickname"
+        #nameValue="ngModel"
+        [class.red]="status"
+      >
+      <button class="btn btn-primary mt-2" [disabled]="form.invalid">Search</button>
+    </div>
+  </form>
+
+  <div class="col-md-12 row mb-2 users" *ngFor="let user of renderUsers; let i = index" (click)="getInfo(user)" routerLink="/rotes/{{user.login}}">
+    <div class="col-md-6"><img src="{{user.avatar_url}}"></div>
+    <div class="col-md-6"><p>{{ user.login }}</p></div>
+  </div>
+</div>
+
+

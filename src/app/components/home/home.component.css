@@ -1,0 +1,17 @@
+img {
+  width: 150px;
+  height: 150px;
+}
+
+.red {
+  border: darkred 2px solid;
+}
+
+.users {
+  cursor: pointer;
+  border-bottom: #c1bfb8 1px dashed;
+}
+
+.users:hover {
+  background-color: #c1bfb8;
+}
